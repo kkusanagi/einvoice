@@ -148,8 +148,8 @@ namespace AngelMay.EInvoiceLib.Utility
 
             string xpath = "/a:Invoice/ext:UBLExtensions/ext:UBLExtension/ext:ExtensionContent/sig:UBLDocumentSignatures/sac:SignatureInformation/ds:Signature/ds:Object/xades:QualifyingProperties/xades:SignedProperties";
             var element = doc.SelectSingleNode(xpath, nsmgr);
-
-            return LinearizeXml(element.OuterXml);
+            return element.OuterXml;
+            // return LinearizeXml(element.OuterXml);
 
         }
 
@@ -378,7 +378,7 @@ namespace AngelMay.EInvoiceLib.Utility
         {
             xml = RemoveXmlDeclaration(xml);
             xml = RemoveSignatureElement(xml);
-            xml = LinearizeXml(xml);
+            // xml = LinearizeXml(xml);
             return xml;
         }
 
